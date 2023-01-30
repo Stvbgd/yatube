@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Последние изменения на сайте{% endblock %}
+{% block content %}
+<h1>Последние изменения на сайте</h1>
+  {% for post in posts %}
+    <article>
+      <ul>
+        <li>
+          Автор: {{ post.author.get_full_name }}
+        </li>
+        <li>
+          Дата публикации: {{ post.pub_date|date:"d M Y" }}
+        </li>
+      </ul>      
+      <p>{{ post.text }}</p>         
+    </article>
+  {% endfor %}
+{% endblock %}
